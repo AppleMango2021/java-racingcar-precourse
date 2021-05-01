@@ -12,9 +12,7 @@ public class NameUtils {
 		return names;
 	}
 
-	public static void checkLengthOfName(String carName) {
-		if (carName.trim().length() > 5) {
-			throw new InvalidNameLengthException();
-		}
+	public static boolean isValidLength(String carName) {
+		return carName.trim().length() <= 5;
 	}
 }

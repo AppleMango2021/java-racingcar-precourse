@@ -10,7 +10,7 @@ public class NameUtilsTest {
 
 	@Test
 	@DisplayName("자동차 이름 입력시 ','로 구분")
-	void 이름목록_생성_성공(){
+	void 이름목록_생성_성공() {
 		//Given + When
 		List<String> carList = NameUtils.separateByComma("BMW,Benz,Audi");
 
@@ -20,7 +20,7 @@ public class NameUtilsTest {
 
 	@Test
 	@DisplayName("자동차 이름 입력시 ':'로 구분")
-	void 이름목록_생성_실패(){
+	void 이름목록_생성_실패() {
 		//Given + When
 		List<String> carList = NameUtils.separateByComma("BMW:Benz:Audi");
 
@@ -28,9 +28,10 @@ public class NameUtilsTest {
 		assertThat(carList.contains("BMW")).isEqualTo(false);
 		assertThat(carList.size()).isNotEqualTo(3);
 	}
+
 	@Test
 	@DisplayName("구분 시, 앞뒤 공백 제거하는지 점검")
-	void 앞뒤_공백_제거하여_이름목록_생성(){
+	void 앞뒤_공백_제거하여_이름목록_생성() {
 		//Given + When
 		List<String> carList = NameUtils.separateByComma(" BMW , Ben z ,  Audi");
 
@@ -39,17 +40,12 @@ public class NameUtilsTest {
 	}
 
 	@Test
-	@DisplayName("이름 다섯자 이상인 경우 예외리턴")
-	void 이름길이_다섯글자_이상인_경우_예외리턴(){
+	@DisplayName("이름 다섯자 초과인 경우 false 리턴")
+	void 이름길이_다섯글자_초과인_경우_false리턴() {
 		//Given + When
 		String carName = "Ferrari";
 
 		//Then
-		assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
-			@Override
-			public void call() throws Throwable {
-				NameUtils.checkLengthOfName(carName);
-			}
-		}).isInstanceOf(InvalidNameLengthException.class);
+		assertThat(NameUtils.isValidLength(carName)).isFalse();
 	}
 }
