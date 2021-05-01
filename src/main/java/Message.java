@@ -6,11 +6,12 @@ public enum Message {
 	NOTICE_BEFORE_PRINT_RESULT("실행 결과"),
 	NOTICE_WINNER("가 최종 우승했습니다."),
 
-	ERROR_INVALID_NAME_LENGTH("이름은 다섯자 이하로 입력해주세요.");
+	ERROR_INVALID_NAME_LENGTH("이름은 다섯자 이하로 입력해주세요."),
+	ERROR_NULL_INPUT("반드시 값을 입력해주세요.");
 
 	private String text;
 
-	Message(String text){
+	Message(String text) {
 		this.text = text;
 	}
 
