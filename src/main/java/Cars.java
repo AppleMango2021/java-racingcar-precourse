@@ -11,12 +11,19 @@ public class Cars {
 	}
 
 	private List<Car> createToCars(List<String> input) throws InvalidInputException {
-		List<Car> cars = new ArrayList<>();
+		List<Car> toBeCars = new ArrayList<>();
 		for (String name : input) {
 			Car car = new Car(name);
-			cars.add(car);
+			validateDuplicate(car, toBeCars);
+			toBeCars.add(car);
 		}
-		return cars;
+		return toBeCars;
+	}
+
+	private void validateDuplicate(Car car, List<Car> toBeCars) throws InvalidInputException {
+		if (toBeCars.contains(car)) {
+			throw new InvalidInputException(Message.ERROR_DUPLICATE_NAME);
+		}
 	}
 
 	public String visualizePositions(String indicator) {
@@ -41,7 +48,7 @@ public class Cars {
 		int farthestDistance = cars.get(0).distanceSoFar();
 
 		List<Car> winners = new ArrayList<>();
-		for(Car car : cars){
+		for (Car car : cars) {
 			classifyWinners(car, winners, farthestDistance);
 		}
 		return winners;

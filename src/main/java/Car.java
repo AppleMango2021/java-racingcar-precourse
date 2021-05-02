@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Car implements Comparable<Car> {
 
 	private static final int MINIMUM_REQUIRED_FUEL = 4;
@@ -50,5 +52,20 @@ public class Car implements Comparable<Car> {
 	@Override
 	public int compareTo(Car other) {
 		return other.distanceSoFar() - this.distanceSoFar();
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		Car car = (Car)o;
+		return this.name.equals(car.getName());
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(name);
 	}
 }
