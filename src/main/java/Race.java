@@ -1,6 +1,6 @@
 public class Race {
 	private static final String POSITION_INDICATOR = "-";
-	
+
 	private Round round;
 	private Cars cars;
 	private OutputView outputView;
@@ -17,5 +17,9 @@ public class Race {
 			outputView.printMessage(cars.visualizePositions(POSITION_INDICATOR));
 			round.oneRoundFinished();
 		}
+	}
+
+	public Round getRound() {
+		return round;
 	}
 }
