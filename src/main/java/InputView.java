@@ -36,9 +36,9 @@ public class InputView {
 	private boolean checkNamingRules(String input) throws InvalidInputException {
 		checkNotNull(input);
 		List<String> names = NameUtils.separateByComma(input);
-		for (String name : names) {
-			NameUtils.isValidLength(name);
-		}
+		// for (String name : names) {
+		// 	NameUtils.isValidLength(name);
+		// }
 		return true;
 	}
 

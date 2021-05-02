@@ -12,7 +12,10 @@ public class NameUtils {
 		return names;
 	}
 
-	public static boolean isValidLength(String carName) {
-		return carName.trim().length() <= 5;
-	}
+	// public static boolean isValidLength(String carName) throws InvalidInputException {
+	// 	if (carName.trim().length() > Car.UPPER_BOUND_NAME_LENGTH) {
+	// 		throw new InvalidInputException(Message.ERROR_INVALID_NAME_LENGTH);
+	// 	}
+	// 	return true;
+	// }
 }

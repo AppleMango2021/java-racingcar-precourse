@@ -1,12 +1,23 @@
+import java.util.Objects;
+
 public class Car {
 
-	//최소로 요구되는 연료에 대한 기준을 자동차가 가지는 것이 맞을까?
-	private static final int MINIMUM_REQUIRED_FUEL = 4;
+	public static final int MINIMUM_REQUIRED_FUEL = 4;
+	public static final int UPPER_BOUND_NAME_LENGTH = 5;
 
+	private String name;
 	private int fuel;
 	private int drivenDistance;
 
-	public Car() {
+	public Car(String name) throws InvalidInputException {
+		validateLength(name);
+		this.name = name;
+	}
+
+	private void validateLength(String name) throws InvalidInputException {
+		if (name.length() > UPPER_BOUND_NAME_LENGTH) {
+			throw new InvalidInputException(Message.ERROR_INVALID_NAME_LENGTH);
+		}
 	}
 
 	public boolean readyToRun() {
@@ -27,5 +38,4 @@ public class Car {
 			drivenDistance += 1;
 		}
 	}
-
 }
