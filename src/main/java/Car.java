@@ -1,4 +1,4 @@
-public class Car {
+public class Car implements Comparable<Car> {
 
 	private static final int MINIMUM_REQUIRED_FUEL = 4;
 	private static final int UPPER_BOUND_NAME_LENGTH = 5;
@@ -45,5 +45,10 @@ public class Car {
 			sb.append(indicator);
 		}
 		return sb.toString();
+	}
+
+	@Override
+	public int compareTo(Car other) {
+		return other.distanceSoFar() - this.distanceSoFar();
 	}
 }

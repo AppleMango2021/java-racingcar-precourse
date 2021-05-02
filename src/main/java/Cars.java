@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Cars {
@@ -32,6 +33,23 @@ public class Cars {
 	public void move() {
 		for (Car car : cars) {
 			car.run();
+		}
+	}
+
+	public List<Car> announceWinners() {
+		Collections.sort(cars);
+		int farthestDistance = cars.get(0).distanceSoFar();
+
+		List<Car> winners = new ArrayList<>();
+		for(Car car : cars){
+			classifyWinners(car, winners, farthestDistance);
+		}
+		return winners;
+	}
+
+	private void classifyWinners(Car car, List<Car> winners, int farthestDistance) {
+		if (car.distanceSoFar() == farthestDistance) {
+			winners.add(car);
 		}
 	}
 }

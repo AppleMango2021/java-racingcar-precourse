@@ -37,4 +37,22 @@ public class CarsTest {
 		assertThatThrownBy(() -> {Cars cars = new Cars(strings);})
 			.isInstanceOf(InvalidInputException.class);
 	}
+
+	@Test
+	@DisplayName("이동거리 비교하여 우승자 선정하는지 점검")
+	void 우승자_혹은_우승자들_선정(){
+		//Given
+		List<String> names = new ArrayList<>();
+		names.add("Benz");
+		names.add("Audi");
+		names.add("Ford");
+		Cars cars = new Cars(names);
+
+		//When
+		List<Car> winners = cars.announceWinners();
+
+		//Then
+		//현재는 race를 시작하기 전이므로 모두 이동거리가 같으며, 따라서 우승자는 총 3명이다.
+		assertThat(winners.size()).isGreaterThanOrEqualTo(3);
+	}
 }
