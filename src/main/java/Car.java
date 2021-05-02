@@ -1,41 +1,51 @@
-import java.util.Objects;
+import java.util.Random;
 
 public class Car {
 
-	public static final int MINIMUM_REQUIRED_FUEL = 4;
-	public static final int UPPER_BOUND_NAME_LENGTH = 5;
+	private static final int MINIMUM_REQUIRED_FUEL = 4;
+	private static final int UPPER_BOUND_NAME_LENGTH = 5;
 
 	private String name;
-	private int fuel;
-	private int drivenDistance;
+	private Fuel fuel;
+	private Distance drivenDistance;
 
 	public Car(String name) throws InvalidInputException {
-		validateLength(name);
+		validateNameLength(name);
 		this.name = name;
+		fuel = new Fuel();
+		drivenDistance = new Distance();
 	}
 
-	private void validateLength(String name) throws InvalidInputException {
+	private void validateNameLength(String name) throws InvalidInputException {
 		if (name.length() > UPPER_BOUND_NAME_LENGTH) {
 			throw new InvalidInputException(Message.ERROR_INVALID_NAME_LENGTH);
 		}
 	}
 
-	public boolean readyToRun() {
-		return this.fuel >= MINIMUM_REQUIRED_FUEL;
-	}
-
-	public void fillFuel(int fuelAmount) {
-		this.fuel = fuelAmount;
+	private boolean readyToRun() {
+		return fuel.remainingFuel() >= MINIMUM_REQUIRED_FUEL;
 	}
 
 	public int distanceSoFar() {
-		return this.drivenDistance;
+		return drivenDistance.showDistance();
 	}
 
 	public void run() {
-		//규칙이 변경되면 한 칸 이상씩 움직일 수도 있지 않을까?
+		fuel.injectFuel();
 		if (readyToRun()) {
-			drivenDistance += 1;
+			drivenDistance.moveForward();
 		}
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String distanceToImage(String indicator) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < drivenDistance.showDistance(); i++) {
+			sb.append(indicator);
+		}
+		return sb.toString();
 	}
 }
