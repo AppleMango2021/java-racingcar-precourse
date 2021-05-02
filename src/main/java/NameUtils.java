@@ -12,10 +12,13 @@ public class NameUtils {
 		return names;
 	}
 
-	// public static boolean isValidLength(String carName) throws InvalidInputException {
-	// 	if (carName.trim().length() > Car.UPPER_BOUND_NAME_LENGTH) {
-	// 		throw new InvalidInputException(Message.ERROR_INVALID_NAME_LENGTH);
-	// 	}
-	// 	return true;
-	// }
+	public static String listCarToStringName(List<Car> cars) {
+		StringBuilder sb = new StringBuilder();
+		for(Car car : cars){
+			sb.append(car.getName()).append(",");
+		}
+		sb.deleteCharAt(sb.length()-1);
+		sb.append(Message.NOTICE_WINNER.showText());
+		return sb.toString();
+	}
 }

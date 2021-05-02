@@ -1,8 +1,8 @@
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -40,12 +40,17 @@ public class NameUtilsTest {
 	}
 
 	@Test
-	@DisplayName("이름 다섯자 초과인 경우 false 리턴")
-	void 이름길이_다섯글자_초과인_경우_false리턴() {
-		//Given + When
-		String carName = "Ferrari";
+	@DisplayName("우승자 목록 전달시, 발표 안내문으로 변환하는지 점검")
+	void 우승자목록_발표안내문으로_변환(){
+		//Given
+		List<Car> winner = new ArrayList<>();
+		winner.add(new Car("BMW"));
+		winner.add(new Car("Ford"));
+
+		//When
+		String result = NameUtils.listCarToStringName(winner);
 
 		//Then
-		assertThat(NameUtils.isValidLength(carName)).isFalse();
+		assertThat(result.length()).isGreaterThan(0);
 	}
 }
