@@ -1,6 +1,11 @@
+package view;
+
 import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Pattern;
+
+import exception.InvalidInputException;
+import utils.NameUtils;
 
 public class InputView {
 
@@ -22,7 +27,7 @@ public class InputView {
 		return NameUtils.separateByComma(input);
 	}
 
-	boolean hasValidStringInput(String input) {
+	public boolean hasValidStringInput(String input) {
 		boolean stopReceivingInput = false;
 		try {
 			stopReceivingInput = checkNotNull(input);
@@ -50,7 +55,7 @@ public class InputView {
 		return Integer.parseInt(input);
 	}
 
-	boolean hasValidNumber(String input) {
+	public boolean hasValidNumber(String input) {
 		boolean stopReceivingInput = false;
 		try {
 			stopReceivingInput = (checkNotNull(input) && checkValidNumberRange(input));

@@ -1,4 +1,12 @@
+package domain;
+
 import java.util.List;
+
+import exception.InvalidInputException;
+import utils.NameUtils;
+import view.InputView;
+import view.Message;
+import view.OutputView;
 
 public class Contest {
 

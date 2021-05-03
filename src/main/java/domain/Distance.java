@@ -1,3 +1,5 @@
+package domain;
+
 public class Distance {
 
 	private static final int MOVING_UNIT = 1; //이동단위

@@ -1,3 +1,7 @@
+package domain;
+
+import view.OutputView;
+
 public class Race {
 	private static final String POSITION_INDICATOR = "-";
 

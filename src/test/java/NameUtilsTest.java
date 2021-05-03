@@ -6,6 +6,9 @@ import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import domain.Car;
+import utils.NameUtils;
+
 public class NameUtilsTest {
 
 	@Test

@@ -1,10 +1,14 @@
+package exception;
+
+import view.Message;
+
 public class InvalidInputException extends RuntimeException {
 
 	InvalidInputException() {
 		super();
 	}
 
-	InvalidInputException(Message message) {
+	public InvalidInputException(Message message) {
 		super(message.showText());
 	}
 }

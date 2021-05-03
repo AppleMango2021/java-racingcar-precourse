@@ -1,4 +1,9 @@
+package domain;
+
 import java.util.Objects;
+
+import exception.InvalidInputException;
+import view.Message;
 
 public class Car implements Comparable<Car> {
 
