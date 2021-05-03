@@ -22,4 +22,8 @@ public class Race {
 	public Round getRound() {
 		return round;
 	}
+
+	public Cars getCars() {
+		return cars;
+	}
 }
