@@ -10,7 +10,7 @@ public enum Message {
 	ERROR_DUPLICATE_NAME("중복되는 이름이 있습니다. 중복없이 입력해주세요."),
 	ERROR_NULL_INPUT("반드시 값을 입력해주세요."),
 	ERROR_NON_POSITIVE_NUMBER_VALUE("1 이상의 값을 입력해주세요."),
-	ERROR_OVER_NUMBER_RANGE("범위에 맞는 숫자를 입력해주세요."),
+	ERROR_OVER_NUMBER_RANGE("범위에 맞는 숫자를 입력해주세요.(1이상 99이하)"),
 	;
 
 	private String text;

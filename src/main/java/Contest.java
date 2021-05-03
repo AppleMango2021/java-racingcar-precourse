@@ -31,7 +31,7 @@ public class Contest {
 		boolean carsPrepared = false;
 		outputView.printMessage(Message.REQUEST_INPUT_CARS_NAME);
 		while (!carsPrepared) {
-			carsPrepared = carsRegistered(inputView.returnCarNames());
+			carsPrepared = carsRegistered(inputView.returnSeparatedString());
 		}
 		return carsPrepared;
 	}
